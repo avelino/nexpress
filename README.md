@@ -6,10 +6,17 @@ Fast, unopinionated, minimalist web framework for [nbb](https://github.com/babas
 
 ## Installation
 
-Add `nexpress` to your dependencies in `package.json`:
+Add `nexpress` to your dependencies:
 
 ```bash
-npm install nexpress express
+# Using npm
+npm install nexpress express nbb
+
+# Using yarn
+yarn add nexpress express nbb
+
+# Using pnpm
+pnpm add nexpress express nbb
 ```
 
 ## Features
@@ -219,6 +226,53 @@ npm run example:todo
 npm run example:router
 npm run example:advanced
 ```
+
+## Contributing
+
+Contributions are welcome! Here's how you can contribute:
+
+1. Fork the repository
+2. Create your feature branch: `git checkout -b feature/my-new-feature`
+3. Make your changes
+4. Run the tests: `npm test`
+5. Commit your changes: `git commit -am 'Add some feature'`
+6. Push to the branch: `git push origin feature/my-new-feature`
+7. Submit a pull request
+
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/avelino/nexpress.git
+cd nexpress
+
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+```
+
+## Publishing (for maintainers)
+
+To publish a new version to npm:
+
+```bash
+# Update the version in package.json
+npm version patch   # for bug fixes
+npm version minor   # for new features
+npm version major   # for breaking changes
+
+# Publish to npm
+npm publish
+```
+
+This will automatically:
+
+1. Run tests
+2. Build the package
+3. Publish to npm
+4. Push tags to GitHub
 
 ## License
 

@@ -2,13 +2,19 @@
   "name": "nexpress",
   "version": "0.1.0",
   "description": "Idiomatic Express framework abstraction for Clojure on Node.js",
-  "main": "src/nexpress/core.cljs",
+  "main": "index.js",
   "scripts": {
     "test": "nbb -cp src:test test/runner.cljs",
     "example:hello": "nbb -cp src examples/hello-world.cljs",
     "example:todo": "nbb -cp src examples/todo-api.cljs",
     "example:router": "nbb -cp src examples/router-example.cljs",
-    "example:advanced": "nbb -cp src examples/advanced-example.cljs"
+    "example:advanced": "nbb -cp src examples/advanced-example.cljs",
+    "clean": "rm -rf lib",
+    "prebuild": "npm run clean",
+    "build": "node scripts/build.js",
+    "prepublishOnly": "npm test && npm run build",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "clojure",
@@ -20,7 +26,10 @@
     "node"
   ],
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^5.1.0"
+  },
+  "peerDependencies": {
+    "nbb": "^1.2.0"
   },
   "devDependencies": {
     "body-parser": "^1.20.1",
@@ -31,6 +40,19 @@
     "multer": "^1.4.5-lts.1",
     "nbb": "^1.2.0"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avelino/nexpress.git"
+  },
+  "files": [
+    "lib",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "Thiago Avelino <t@avelino.xxx>",
   "license": "MIT"
 }
