@@ -1,11 +1,11 @@
-// This file provides a CommonJS compatibility layer for nexpress
-// For idiomatic use with nbb, import directly from nexpress/core
+// This file provides a CommonJS compatibility layer for @avelino/nexpress
+// For idiomatic use with nbb, import directly from @avelino/nexpress/core
 
 // Load nbb runtime
 try {
   require('nbb');
 } catch (e) {
-  console.error('Error: nbb is required to use nexpress. Please install it with: npm install nbb');
+  console.error('Error: nbb is required to use @avelino/nexpress. Please install it with: npm install nbb');
   throw e;
 }
 

@@ -6,17 +6,17 @@ Fast, unopinionated, minimalist web framework for [nbb](https://github.com/babas
 
 ## Installation
 
-Add `nexpress` to your dependencies:
+Add `@avelino/nexpress` to your dependencies:
 
 ```bash
 # Using npm
-npm install nexpress express nbb
+npm install @avelino/nexpress express nbb
 
 # Using yarn
-yarn add nexpress express nbb
+yarn add @avelino/nexpress express nbb
 
 # Using pnpm
-pnpm add nexpress express nbb
+pnpm add @avelino/nexpress express nbb
 ```
 
 ## Features
@@ -258,21 +258,22 @@ npm test
 To publish a new version to npm:
 
 ```bash
-# Update the version in package.json
+# Update the version in package.json, create a git tag, and push to GitHub
 npm version patch   # for bug fixes
 npm version minor   # for new features
 npm version major   # for breaking changes
 
 # Publish to npm
-npm publish
+npm publish --access public
 ```
 
 This will automatically:
 
 1. Run tests
 2. Build the package
-3. Publish to npm
-4. Push tags to GitHub
+3. Create a git tag with the new version
+4. Push the tag to GitHub
+5. Publish to npm
 
 ## License
 

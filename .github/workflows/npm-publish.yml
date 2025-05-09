@@ -1,8 +1,9 @@
 name: Publish to NPM
 
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - "v*"
   workflow_dispatch:
     inputs:
       version:
@@ -21,8 +22,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
           registry-url: "https://registry.npmjs.org/"
+
+      - name: Git Configuration
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
 
       - name: Install dependencies
         run: npm ci
@@ -32,12 +38,16 @@ jobs:
 
       - name: Increment version (on manual workflow)
         if: github.event_name == 'workflow_dispatch'
-        run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
+        run: |
+          npm version ${{ github.event.inputs.version }}
+          git push
+          git push --tags
 
       - name: Build package
         run: npm run build
 
       - name: Publish to NPM
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
