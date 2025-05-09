@@ -1,0 +1,20 @@
+# Dev directories
+test/
+examples/
+.github/
+uploads/
+.git/
+.lsp/
+.clj-kondo/
+
+# Dev config files
+.gitignore
+*.log
+*.bak
+.DS_Store
+
+# Source files (since we publish the compiled lib/ directory)
+src/
+
+# Node.js stuff
+node_modules/
