@@ -33,10 +33,10 @@
   },
   "devDependencies": {
     "body-parser": "^1.20.1",
-    "compression": "^1.7.4",
+    "compression": "^1.8.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "express-session": "^1.18.1",
+    "express-session": "^1.18.2",
     "multer": "^1.4.5-lts.1",
     "nbb": "^1.2.0"
   },
